@@ -4,6 +4,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        clean: {
+            images: {
+                src: [themeDir + 'images']
+            }
+        },
+
         compass: {
             dist: {
                 options: {
@@ -15,17 +21,35 @@ module.exports = function(grunt) {
             }
         },
 
+        jshint: {
+            all: [
+                'Gruntfile.js',
+                themeDir + ['js/{,*/}*.js', '!js/{,*/}*.min.js']
+            ]
+        },
+
+        uglify: {
+            dist: {
+                options: {
+                    mangle: false
+                },
+                files: {
+                    'theme/skin/frontend/my-theme/default/js/scripts.min.js': ['theme/skin/frontend/my-theme/default/js/scripts.js']
+                }
+            }
+        },
+
         imagemin: {
             dynamic: {
                 files: [{
                     expand: true,
                     cwd: themeDir + 'images-src/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: '**/*.{png,jpg,gif}',
                     dest: themeDir + 'images/'
                 }]
             }
         },
-        
+
         watch: {
             options: {
                 livereload: true
@@ -33,16 +57,32 @@ module.exports = function(grunt) {
             livereload: {
                 files: [
                     themeDir + 'scss/{,*/}*.scss',
+                    themeDir + 'js/{,*/}*.js',
                     themeDir + 'images-src/{,*/}*.{png,jpg,gif}'
                 ],
-                tasks: ['compass', 'imagemin']
+                tasks: [
+                    'compass',
+                    'jshint',
+                    'uglify',
+                    'clean:images',
+                    'imagemin'
+                ]
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['compass', 'imagemin']);
+    grunt.registerTask('default', [
+        'compass',
+        'clean:images',
+        'imagemin',
+        'jshint',
+        'uglify'
+    ]);
 };
