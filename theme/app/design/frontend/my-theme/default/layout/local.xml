@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<default>
+	<reference name="head">
+		<action method="addItem">
+            <type>skin_js</type>
+            <name>js/scripts.min.js</name>
+            <params/>
+        </action>
+	</reference>
+</default>
+</layout>

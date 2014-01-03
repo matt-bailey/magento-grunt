@@ -1,20 +1,21 @@
 module.exports = function(grunt) {
-    var themeDir = 'theme/skin/frontend/my-theme/default/';
+    var skinDir = 'theme/skin/frontend/my-theme/default/';
+    var appDir = 'theme/app/design/frontend/my-theme/default/';
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
             images: {
-                src: [themeDir + 'images']
+                src: [skinDir + 'images']
             }
         },
 
         compass: {
             dist: {
                 options: {
-                    sassDir: themeDir + 'scss',
-                    cssDir: themeDir + 'css',
+                    sassDir: skinDir + 'scss',
+                    cssDir: skinDir + 'css',
                     environment: 'development',
                     outputStyle: 'nested'
                 }
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
         jshint: {
             all: [
                 'Gruntfile.js',
-                themeDir + ['js/{,*/}*.js', '!js/{,*/}*.min.js']
+                skinDir + ['js/{,*/}*.js', '!js/{,*/}*.min.js']
             ]
         },
 
@@ -43,9 +44,9 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: themeDir + 'images-src/',
+                    cwd: skinDir + 'images-src/',
                     src: '**/*.{png,jpg,gif}',
-                    dest: themeDir + 'images/'
+                    dest: skinDir + 'images/'
                 }]
             }
         },
@@ -56,9 +57,10 @@ module.exports = function(grunt) {
             },
             livereload: {
                 files: [
-                    themeDir + 'scss/{,*/}*.scss',
-                    themeDir + 'js/{,*/}*.js',
-                    themeDir + 'images-src/{,*/}*.{png,jpg,gif}'
+                    appDir + '**/*.{phtml,xml}',
+                    skinDir + 'scss/{,*/}*.scss',
+                    skinDir + 'js/{,*/}*.js',
+                    skinDir + 'images-src/{,*/}*.{png,jpg,gif}'
                 ],
                 tasks: [
                     'compass',
