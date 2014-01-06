@@ -24,6 +24,16 @@ public_html/LICENSE*
 public_html/lib/Zend/
 public_html/media/
 public_html/var/
+public_html/.htaccess
+public_html/.htaccess.dist
+public_html/.htaccess.sample
+public_html/api.php
+public_html/favicon.ico
+public_html/get.php
+public_html/js/
+public_html/lib/
+public_html/mage
+public_html/shell/
 public_html/pear/
 public_html/php.ini.sample
 public_html/pkginfo/
