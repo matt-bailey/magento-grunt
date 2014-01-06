@@ -16,6 +16,7 @@ public_html/cron.php
 public_html/cron.sh
 public_html/downloader/
 public_html/errors/
+public_html/includes/
 public_html/index.php
 public_html/index.php.sample
 public_html/install.php
