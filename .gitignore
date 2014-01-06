@@ -38,3 +38,15 @@ public_html/pear/
 public_html/php.ini.sample
 public_html/pkginfo/
 public_html/RELEASE_NOTES.txt
+public_html/app/.htaccess
+public_html/app/Mage.php
+public_html/app/code/
+public_html/app/design/adminhtml/
+public_html/app/design/frontend/base/
+public_html/app/design/frontend/default/
+public_html/app/etc/
+public_html/app/locale/
+public_html/skin/adminhtml/
+public_html/skin/frontend/base/
+public_html/skin/frontend/default/
+public_html/skin/install/
