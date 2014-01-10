@@ -1,6 +1,6 @@
 magento-grunt
 =============
 
-This is an example project, showing how you can use Grunt with a Magento theme.
+This is an example project showing how you can use [Grunt](http://gruntjs.com/) with a [Magento](http://magento.com/) theme.
 
-A tutorial will follow in due course...
+You can read an indepth tutorial here: [A Beginner&#8217;s Guide to Using Grunt With Magento](http://www.gpmd.co.uk/blog/a-beginners-guide-to-using-grunt-with-magento/)
